@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+body {
+  background-color: aqua !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#loading {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.5);
+  position: fixed;
+  top: 0;
+  cursor: not-allowed;
+  z-index: 5;
+  display: none;
+}
+#loading.show {
+  display: block;
+}
+#loading-bar-spinner.spinner {
+  left: 50%;
+  margin-left: -20px;
+  top: 50%;
+  margin-top: -20px;
+  position: absolute;
+  z-index: 19 !important;
+  animation: loading-bar-spinner 400ms linear infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#loading-bar-spinner.spinner .spinner-icon {
+  width: 40px;
+  height: 40px;
+  border:  solid 4px transparent;
+  border-top-color:  #fff !important;
+  border-left-color: #fff !important;
+  border-radius: 50%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes loading-bar-spinner {
+0%   { transform: rotate(0deg);   transform: rotate(0deg); }
+100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
 
-.App-link {
-  color: #61dafb;
+
+.example-food__container {
+  height: 300px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.example-food__container.selected {
+  border: 5px pink solid;
+  border-radius: 1rem;
+}
+
+.example-food {
+  width: 100%;
+}
+
+.example-food:hover {
+  box-shadow: 5px 5px 20px #0000005b;
+}
+
+#main {
+  padding: 3rem 0;
 }
